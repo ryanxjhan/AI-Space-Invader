@@ -183,7 +183,7 @@ class AtariPreprocessor(Preprocessor):
         We recommend using the Python Image Library (PIL) to do the
         image conversions.
 
-        Huiting: the API of PIL is below:
+        the API of PIL is below:
         https://pillow.readthedocs.io/en/4.0.x/reference/Image.html
         """
         state = Image.fromarray(state, 'RGB')
@@ -212,7 +212,6 @@ class AtariPreprocessor(Preprocessor):
         state = state.resize((self.scale[0], long_scale))
         state = self.crop_image(state, self.scale[0], self.scale[1])
         state = np.asarray(state) / 255.
-
         return state
 
     def process_batch(self, states, new_states):

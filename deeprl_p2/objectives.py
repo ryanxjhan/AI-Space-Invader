@@ -1,5 +1,4 @@
 """Loss functions."""
-
 from tensorflow import keras
 import tensorflow.keras.backend as K
 import semver

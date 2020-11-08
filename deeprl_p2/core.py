@@ -99,7 +99,7 @@ class ReplayMemory:
             return None, None, None, None, None
         else:
             count = 0
-            if self.end > self.start:
+            if not self.full:
                 count = self.end - self.start
             else:
                 count = self.max_size
@@ -124,10 +124,10 @@ class ReplayMemory:
 
             # windows, batch, height, width
             state_list = np.array([frame_1, frame_2, frame_3, frame_4])
-            state_list = np.transpose(state_list, [1,2,3,0]) #NHWC
+            state_list = np.transpose(state_list, [1,2,3,0])
 
             next_state_list = np.array([frame_2, frame_3, frame_4, frame_5])
-            next_state_list = np.transpose(next_state_list, [1,2,3,0]) #NHWC
+            next_state_list = np.transpose(next_state_list, [1,2,3,0])
 
             action_list = self.mem_action[indices_4]
             reward_list = self.mem_reward[indices_4]
